@@ -117,10 +117,7 @@ class PhoneBookCtrl
             System.out.println("= Print All Records ====");
             for(int i=0; i<this.recordCnt; i++)
             {
-                if (this.book[i] == null)
-                    continue;
-                else
-                    System.out.printf("%2d. [%s] [%s] [%s]\n", i+1, this.book[i].name, this.book[i].phoneNum, this.book[i].dateOfBirth);
+                System.out.printf("%2d. [%s] [%s] [%s]\n", i+1, this.book[i].name, this.book[i].phoneNum, this.book[i].dateOfBirth);
             }
             System.out.println("========================");
         }
@@ -163,8 +160,7 @@ class PhoneBookVer03
                     break;
                 case 4:
                     System.out.println("Exiting the program.");
-                    System.exit(0);
-                    break;
+                    return;
                 case 5:
                     bookCtrl.printAllEntries();
                     break;
