@@ -35,7 +35,7 @@ class PhoneBookCtrl
 
     PhoneBookEntry[] book;
     int recordCnt = 0;
-    
+
     public PhoneBookCtrl(PhoneBookEntry[] phoneBook)
     {
         this.book = phoneBook;
