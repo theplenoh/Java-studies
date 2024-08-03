@@ -30,7 +30,7 @@ class HybridCar extends Car
 
 class HybridWaterCar extends HybridCar
 {
-    int waterGauge;
+    private int waterGauge;
 
     public HybridWaterCar(int gasoline, int electric, int water)
     {
