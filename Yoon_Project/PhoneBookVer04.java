@@ -58,11 +58,46 @@ class PhoneBookMgr
     PhoneBookEntry[] book = new PhoneBookEntry[RECORD_MAX];
     int recordCnt = 0;
 
+    private PhoneBookEntry readGeneralEntry()
+    {
+        System.out.print("Name: ");
+        String name = MenuUI.kbd.nextLine();
+        System.out.print("Phone #: ");
+        String phoneNum = MenuUI.kbd.nextLine();
+
+        return new PhoneBookEntry(name, phoneNum);
+    }
+    private PhoneBookEntry readCollegeEntry()
+    {
+        System.out.print("Name: ");
+        String name = MenuUI.kbd.nextLine();
+        System.out.print("Phone #: ");
+        String phoneNum = MenuUI.kbd.nextLine();
+        System.out.print("Your major: ");
+        String major = MenuUI.kbd.nextLine();
+        System.out.print("Year in college: ");
+        int year = MenuUI.kbd.nextInt();
+
+        return new PhoneBookCollegeEntry(name, phoneNum, major, year);
+    }
+    private PhoneBookEntry readCompanyEntry()
+    {
+        System.out.print("Name: ");
+        String name = MenuUI.kbd.nextLine();
+        System.out.print("Phone #: ");
+        String phoneNum = MenuUI.kbd.nextLine();
+        System.out.print("Company name: ");
+        String company = MenuUI.kbd.nextLine();
+
+        return new PhoneBookCompanyEntry(name, phoneNum, company);
+    }
     public void insertEntry()
     {
         if (this.recordCnt < this.book.length)
         {
+            PhoneBookEntry newEntry = null;
             int choice;
+
             String name, phoneNum, major;
             int year;
             String company;
@@ -71,43 +106,22 @@ class PhoneBookMgr
             System.out.print(">>> ");
             choice = Integer.parseInt(MenuUI.kbd.nextLine());
 
-            if (choice == 1)
+            switch (choice)
             {
-                System.out.print("Name: ");
-                name = MenuUI.kbd.nextLine();
-                System.out.print("Phone #: ");
-                phoneNum = MenuUI.kbd.nextLine();
+                case 1:
+                    newEntry = readGeneralEntry();
+                    break;
+                case 2:
+                    newEntry = readCollegeEntry();
+                    break;
+                case 3:
+                    newEntry = readCompanyEntry();
+                    break;
+                default:
+                    System.out.println("Submenu Insert choice: out of range");
+            }
 
-                this.book[this.recordCnt++] = new PhoneBookEntry(name, phoneNum);
-            }
-            else if (choice == 2)
-            {
-                System.out.print("Name: ");
-                name = MenuUI.kbd.nextLine();
-                System.out.print("Phone #: ");
-                phoneNum = MenuUI.kbd.nextLine();
-                System.out.print("Your major: ");
-                major = MenuUI.kbd.nextLine();
-                System.out.print("Year in college: ");
-                year = MenuUI.kbd.nextInt();
-
-                this.book[this.recordCnt++] = new PhoneBookCollegeEntry(name, phoneNum, major, year);
-            }
-            else if (choice == 3)
-            {
-                System.out.print("Name: ");
-                name = MenuUI.kbd.nextLine();
-                System.out.print("Phone #: ");
-                phoneNum = MenuUI.kbd.nextLine();
-                System.out.print("Company name: ");
-                company = MenuUI.kbd.nextLine();
-
-                this.book[this.recordCnt++] = new PhoneBookCompanyEntry(name, phoneNum, company);
-            }
-            else
-            {
-                System.out.println("Submenu Insert choice: out of range");
-            }
+            this.book[this.recordCnt++] = newEntry;
         }
         else
         {
