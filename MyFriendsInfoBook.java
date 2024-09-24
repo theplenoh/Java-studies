@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-class Friend
+abstract class Friend
 {
     String name;
     String phoneNum;
@@ -18,9 +18,7 @@ class Friend
         System.out.println("Phone #: "+phoneNum);
         System.out.println("Address: "+address);
     }
-    public void showBriefInfo()
-    {
-    }
+    public abstract void showBriefInfo();
 }
 
 class HighSchoolFriend extends Friend
