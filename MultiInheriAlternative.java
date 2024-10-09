@@ -1,9 +1,4 @@
-interface TV
-{
-    public void onTV();
-}
-
-class TVImpl
+class TV
 {
     public void onTV()
     {
@@ -24,23 +19,18 @@ class ComputerImpl
     }
 }
 
-class IPTV implements TV, Computer
+class IPTV extends TV implements Computer
 {
     ComputerImpl myComp = new ComputerImpl();
-    TVImpl myTV = new TVImpl();
 
     public void dataReceive()
     {
         myComp.dataReceive();
     }
-    public void onTV()
-    {
-        myTV.onTV();
-    }
     public void powerOn()
     {
-        myComp.dataReceive();
-        myTV.onTV();
+        dataReceive();
+        onTV();
     }
 }
 
