@@ -7,7 +7,7 @@ class ExceptionHandleUseIf
         Scanner kbd = new Scanner(System.in);
         int[] arr = new int[100];
 
-        for(int i=0; i<3; i++)
+        for (int i=0; i<3; i++)
         {
             System.out.print("피제수 입력: ");
             int numA = kbd.nextInt();
@@ -33,7 +33,7 @@ class ExceptionHandleUseIf
             }
 
             arr[idx] = numA / numB;
-            System.out.println("나눗셈 결과는: "+arr[idx]);
+            System.out.println("나눗셈 결과는 "+arr[idx]);
             System.out.println("저장된 위치의 인덱스는 "+idx);
         }
     }
