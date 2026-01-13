@@ -25,7 +25,7 @@ class ExceptionHandleUseIf
             System.out.print("연산결과를 저장할 배열의 인덱스 입력: ");
             int idx = kbd.nextInt();
 
-            if (idx < 0 || idx > 99)
+            if (idx < 0 || 99 < idx)
             {
                 System.out.println("유효하지 않은 인덱스 값입니다.");
                 i-=1;
